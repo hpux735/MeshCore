@@ -16,7 +16,6 @@ void HeltecV4Board::begin() {
     pinMode(P_LORA_PA_TX_EN, OUTPUT);
     digitalWrite(P_LORA_PA_TX_EN,LOW);
 
-
     periph_power.begin();
 
     esp_reset_reason_t reason = esp_reset_reason();
