@@ -251,6 +251,7 @@ int MyMesh::handleRequest(ClientInfo *sender, uint32_t sender_timestamp, uint8_t
 
     uint8_t tlen = telemetry.getSize();
     memcpy(&reply_data[4], telemetry.getBuffer(), tlen);
+    mesh::Utils::printHex(Serial, &reply_data[4], tlen); Serial.println();
     return 4 + tlen; // reply_len
   }
   if (payload[0] == REQ_TYPE_GET_ACCESS_LIST && sender->isAdmin()) {

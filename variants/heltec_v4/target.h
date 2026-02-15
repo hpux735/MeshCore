@@ -17,10 +17,18 @@
   #include <helpers/ui/MomentaryButton.h>
 #endif
 
+class MPSensorManager : public SensorManager {
+
+public:
+    MPSensorManager() {}
+    bool begin() override;
+    bool querySensors(uint8_t requester_permissions, CayenneLPP& telemetry) override;
+};
+
 extern HeltecV4Board board;
 extern WRAPPER_CLASS radio_driver;
 extern AutoDiscoverRTCClock rtc_clock;
-extern EnvironmentSensorManager sensors;
+extern MPSensorManager sensors;
 
 #ifdef DISPLAY_CLASS
   extern DISPLAY_CLASS display;
